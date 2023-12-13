@@ -12,11 +12,11 @@ You can specify the `controller` as the first url segment and the `action` as th
 When the framework receives a request, it matches the url path to the list of routes to determine which controller or
 action to run. 
 
-| Route       | Controller | Action |
-|-------------|:----------:|-------:|
-| "/"         |    Home    |  index |
-| "/products" |  Products  |  index |
-| "/show/123" |  Products  |   show |
+| Route            | Controller | Action |
+|------------------|:----------:|-------:|
+| "/"              |    Home    |  index |
+| "/products"      |  Products  |  index |
+| "/products/show" |  Products  |   show |
 
 The `Router` class gets the job done for us. You need to pass the `path` as the first parameter and the `controller` object
 which is an associative array with the keys `controller` and `action` as the second one. 
@@ -39,3 +39,7 @@ $params  = $router->match($path);
 $action = $params["action"];
 $controller = $params["controller"];
 ```
+
+## Class Organization
+The MVC Framework uses the `spl_autoload_register` to implement an autoload function, which allows the 
+framework to automatically search for classes, controllers and models stored in the `src` folder
